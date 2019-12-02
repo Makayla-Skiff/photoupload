@@ -1,0 +1,25 @@
+﻿@page
+@model WebApplication2.Pages.IndexModel
+@{
+    Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<section>
+
+    <form method="post" asp-page="Index" enctype="multipart/form-data">
+        Photo <input type="file" name="photo" accept="image/*" />
+        <br />
+        <input type="submit" value="Upload" />
+        @if (!string.IsNullOrEmpty(Model.FileName))
+        {
+            <span>
+                <br />
+                <img src="~/images/@Model.FileName" />
+            </span>
+        }
+    </form>
+</section>
